@@ -1,7 +1,11 @@
 [package]
 name = "algorithms"
 version = "0.1.0"
-authors = ["Satvik Shukla"]
+authors = ["Satvik Shukla <satvikshukla9@gmail.com>"]
+license = "MIT"
+description = "Implementation of commonly used algorithms."
+repository = "https://github.com/satvikshukla/algorithms"
+readme = "README.md"
 edition = "2018"
 
 [dependencies]
