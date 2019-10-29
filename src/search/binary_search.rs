@@ -5,7 +5,7 @@ pub fn binary_search<T: PartialEq + PartialOrd>(target: &T, arr: &[T]) -> Option
     let arr_len = arr.len();
 
     if arr_len == 0 {
-        return None
+        return None;
     }
 
     let mut right = arr_len - 1;
@@ -13,7 +13,6 @@ pub fn binary_search<T: PartialEq + PartialOrd>(target: &T, arr: &[T]) -> Option
     while left <= right {
         let mid = left + (right - left) / 2;
 
-        println!("{} {} {}", left, right, mid);
         if &arr[mid] > target {
             right = mid - 1;
         } else if &arr[mid] < target {
