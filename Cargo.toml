@@ -1,10 +1,10 @@
 [package]
-name = "algorithms"
+name = "algorithmplus"
 version = "0.1.0"
 authors = ["Satvik Shukla <satvikshukla9@gmail.com>"]
 license = "MIT"
-description = "Implementation of commonly used algorithms."
-repository = "https://github.com/satvikshukla/algorithms"
+description = "Library of commonly used algorithms."
+repository = "https://github.com/satvikshukla/algorithmplus"
 readme = "README.md"
 edition = "2018"
 
