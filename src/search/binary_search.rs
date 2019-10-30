@@ -1,5 +1,3 @@
-use std::cmp::{PartialEq, PartialOrd};
-
 pub fn binary_search<T: PartialEq + PartialOrd>(target: &T, arr: &[T]) -> Option<usize> {
     let mut left = 0;
     let arr_len = arr.len();
@@ -9,6 +7,10 @@ pub fn binary_search<T: PartialEq + PartialOrd>(target: &T, arr: &[T]) -> Option
     }
 
     let mut right = arr_len - 1;
+
+    if &arr[left] > target || &arr[right] < target {
+        return None;
+    }
 
     while left <= right {
         let mid = left + (right - left) / 2;
@@ -22,45 +24,4 @@ pub fn binary_search<T: PartialEq + PartialOrd>(target: &T, arr: &[T]) -> Option
         }
     }
     None
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn empty() {
-        let index = binary_search(&1, &vec![]);
-        assert_eq!(index, None);
-    }
-
-    #[test]
-    fn search_strings() {
-        let index = binary_search(&"a", &vec!["a", "b", "c", "d"]);
-        assert_eq!(index, Some(0));
-
-        let index = binary_search(&"d", &vec!["a", "b", "c", "d"]);
-        assert_eq!(index, Some(3));
-    }
-
-    #[test]
-    fn search_ints() {
-        let index = binary_search(&4, &vec![1, 2, 3, 4]);
-        assert_eq!(index, Some(3));
-
-        let index = binary_search(&3, &vec![1, 2, 3, 4]);
-        assert_eq!(index, Some(2));
-
-        let index = binary_search(&2, &vec![1, 2, 3, 4]);
-        assert_eq!(index, Some(1));
-
-        let index = binary_search(&1, &vec![1, 2, 3, 4]);
-        assert_eq!(index, Some(0));
-    }
-
-    #[test]
-    fn not_found() {
-        let index = binary_search(&5, &vec![1, 2, 3, 4]);
-        assert_eq!(index, None);
-    }
 }
