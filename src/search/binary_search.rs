@@ -1,3 +1,35 @@
+/// Search for an element in a sorted array using binary search
+///
+/// # Parameters
+///
+/// - `target`: The element to find
+/// - `arr`: A vector to search the element in
+///
+/// # Type parameters
+///
+/// - `T`: A type that can be checked for equality and ordering e.g. a `i32`, a
+///     `u8`, or a `f32`.
+///
+/// # Examples
+///
+/// ```rust
+/// use algorithmplus::search::binary_search;
+/// 
+/// let ls = vec![1, 7, 9, 11, 12];
+/// let idx = binary_search(&7, &ls).unwrap_or_default();
+/// 
+/// assert_eq!(idx, 1);
+/// ```
+/// 
+/// ```rust
+/// use algorithmplus::search::binary_search;
+/// 
+/// let ls = vec![1, 7, 9, 11, 12];
+/// let idx = binary_search(&8, &ls);
+/// 
+/// assert_eq!(idx, None);
+/// ```
+
 pub fn binary_search<T: PartialEq + PartialOrd>(target: &T, arr: &[T]) -> Option<usize> {
     let mut left = 0;
     let arr_len = arr.len();
