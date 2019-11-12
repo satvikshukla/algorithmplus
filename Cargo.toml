@@ -1,6 +1,6 @@
 [package]
 name = "algorithmplus"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Satvik Shukla <satvikshukla9@gmail.com>"]
 license = "MIT"
 description = "Library of commonly used algorithms."
