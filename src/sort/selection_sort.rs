@@ -2,7 +2,7 @@
 ///
 /// # Parameters
 ///
-/// - `arr`: A vector to sort in-place
+/// - `arr`: Mutable reference to the vector to sort in-place
 ///
 /// # Type parameters
 ///

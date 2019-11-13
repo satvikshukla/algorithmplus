@@ -2,8 +2,8 @@
 ///
 /// # Parameters
 ///
-/// - `target`: The element to find
-/// - `arr`: A vector to search the element in
+/// - `target`: Reference to the element to find
+/// - `arr`: Reference to the vector to search the element in
 ///
 /// # Type parameters
 ///

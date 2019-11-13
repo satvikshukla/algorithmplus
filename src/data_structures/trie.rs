@@ -18,11 +18,6 @@ impl TrieNode {
 
 /// Implementation of Trie data structure for lowercase letters
 ///
-/// # Parameters
-///
-/// - `target`: The element to find
-/// - `arr`: A vector to search the element in
-///
 /// # Examples
 ///
 /// ```rust
