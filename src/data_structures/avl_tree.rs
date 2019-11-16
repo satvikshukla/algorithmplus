@@ -1,8 +1,11 @@
 use std::cmp::max;
 
+type Link<K, V> = Option<Box<AVLNode<K, V>>>;
+
+#[derive(Clone)]
 struct AVLNode<K: PartialEq + PartialOrd + Default, V:Default> {
-    left: Option<Box<AVLNode<K, V>>>,
-    right: Option<Box<AVLNode<K, V>>>,
+    left: Link<K, V>,
+    right: Link<K, V>,
     key: K,
     value: V,
     height: u16
@@ -19,7 +22,7 @@ impl<K: PartialEq + PartialOrd + Default, V:Default> AVLNode<K, V> {
 }
 
 pub struct AVLTree<K: PartialEq + PartialOrd + Default, V:Default> {
-    root: Option<Box<AVLNode<K, V>>>
+    root: Link<K, V>
 }
 
 impl<K: PartialEq + PartialOrd + Default, V:Default> AVLTree<K, V> {
@@ -35,10 +38,24 @@ impl<K: PartialEq + PartialOrd + Default, V:Default> AVLTree<K, V> {
         self.root = None;
     }
 
-    fn height(node: Option<Box<AVLNode<K, V>>>) -> i32 {
+    fn height(node: &Link<K, V>) -> i32 {
         match node {
             None => -1,
             Some(val) => (*val).height as i32
+        }
+    }
+
+    // fn insert(key: K, node: AVLNode<K, V>) {
+
+    // }
+
+    fn rotate_with_left_child(node_link: &mut Link<K, V>) {
+        let mut left: Link<K, V> = None;
+        match node_link {
+            None => (),
+            Some(box_val) => {
+                left = (*node_link.unwrap()).left;
+            }
         }
     }
 }
