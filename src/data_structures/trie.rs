@@ -7,7 +7,7 @@ struct TrieNode {
 
 impl TrieNode {
     fn new() -> TrieNode {
-        TrieNode {val: '#', is_word: false, children: Vec::with_capacity(26)}
+        TrieNode {val: Default::default(), is_word: false, children: Vec::with_capacity(26)}
     }
 
     fn from_char(c: char) -> TrieNode {
@@ -44,7 +44,7 @@ impl Trie {
             if (c as usize) < 97 || (c as usize) > 122 {
                 panic!("Found character in input string ({}) that is not between a-z", c);
             }
-            if node.children[c as usize - 97].val == '#' {
+            if node.children[c as usize - 97].val == Default::default() {
                 node.children[c as usize - 97] = TrieNode::from_char(c);
             }
             node = &mut node.children[c as usize - 97];
@@ -58,7 +58,7 @@ impl Trie {
             if (c as usize) < 97 || (c as usize) > 122 {
                 return false;
             }
-            if node.children[c as usize - 97].val == '#' {
+            if node.children[c as usize - 97].val == Default::default() {
                 return false;
             }
             node = &node.children[c as usize - 97];
@@ -72,7 +72,7 @@ impl Trie {
             if (c as usize) < 97 || (c as usize) > 122 {
                 return false;
             }
-            if node.children[c as usize - 97].val == '#' {
+            if node.children[c as usize - 97].val == Default::default() {
                 return false;
             }
             node = &node.children[c as usize - 97];
